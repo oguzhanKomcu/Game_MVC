@@ -1,0 +1,82 @@
+﻿@model Game_MVC.Models.Dto.GameCreateDTO
+@{
+   ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <!---bunları biz yazdık-->
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Game Create</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form method="post" action="/Game/Add">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="Name" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Chose Category</label>
+                            <select name="CategoryId" class="form-control">
+
+                                @foreach (var item in Model.Categories)
+                                {
+
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Platform</label>
+                            <input type="text" name="Platform" class="form-control" placeholder="Platform">
+                        </div>
+                        <div class="form-group">
+                            <label>Dimension</label>
+                            <input type="text" name="Dimension" class="form-control" placeholder="Dimension">
+                        </div>
+                        <div class="form-group">
+                            <label>Release_Date</label>
+                            <input type="text" name="Release_Date" class="form-control" placeholder="Release_Date">
+                        </div>
+                        <div class="form-group">
+                            <label>Language</label>
+                            <input type="text" name="Language" class="form-control" placeholder="Language">
+                        </div> 
+                        <div class="form-group">
+                            <label>Developer_Company</label>
+                            <input type="text" name="Developer_Company" class="form-control" placeholder="Developer_Company">
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Game/List"></a>
+                            <button type="submit" id="getGame"class="btn btn-primary">Submit</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+
+
+    
+
+        $("#getGame").click(function () {
+
+            alert("basıldı.laaa")
+        })
+
+   
+
+</script>

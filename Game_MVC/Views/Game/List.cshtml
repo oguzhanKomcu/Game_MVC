@@ -1,0 +1,77 @@
+﻿@model List<Game_MVC.Models.Entities.Game>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-primary">
+                <div class="card-header">
+                    <h5 class="card-title">Game List</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table table-responsive table-sm">
+                        <table class="table table-striped">
+
+                            <thead>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Platform</th>
+                            <th>Dimension</th>
+                            <th>Category Name</th>
+
+
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Platform</td>
+                                        <td>@item.Dimension</td>
+                                        <th>@item.Category.Name</th> <!--layzloading sayesinde burası geldi.-->
+
+
+                                        <td>
+                                            <a href="/Game/Details/@item.Id" class="btn btn-sm btn-info">Details</a>
+                                        </td>
+                                        <td>
+                                            <a href="/Game/Update/@item.Id" class="btn btn-sm btn-warning">Update</a>
+                                        </td>
+                                        <td>
+                                            <a href="/Game/Delete/@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                                        </td>
+
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="/Game/Add" class="btn-default btn-block">Create A New One</a>
+                </div>
+            </div>
+
+            <div class="table table-responsive table-sm">
+                <table class="table table-striped">
+
+                    <thead></thead>
+                    <tbody></tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

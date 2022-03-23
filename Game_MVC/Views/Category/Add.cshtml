@@ -1,0 +1,36 @@
+﻿@model Game_MVC.Models.Dto.CategoryCreateDTO
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-sm-6">
+
+
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Category Create</h3>
+                </div>
+                @using (Html.BeginForm("Add", "Category", FormMethod.Post))
+                {
+                    <div class="card-body">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Name)
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @placeholder = "Category Name" })
+                            @Html.ValidationMessageFor(x => x.Name)
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-sm float-right">Submit</button>
+                        </div>
+                    </div>
+                }
+                <div class="card-footer">
+                    @Html.ActionLink("Back To List", "List", "Category", new { @class = "btn btn-dark btn-block" })
+                    @*<a href="/Category/List" class="btn btn-warning btn-block">Back To List</a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
